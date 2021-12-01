@@ -56,7 +56,8 @@ body {
         color: #A79C9C;
         font-size: .5em; }
       body #mainSection div p {
-        width: 100%; }
+        width: 100%;
+        padding: 10px 0; }
       body #mainSection div .button {
         color: black;
         background: white;
@@ -67,7 +68,7 @@ body {
         font-size: 1em;
         border: 1px solid black;
         transition: all 0.3s ease;
-        margin-top: 20px; }
+        margin-top: 40px; }
         body #mainSection div .button:hover {
           border-color: white;
           background: black;
