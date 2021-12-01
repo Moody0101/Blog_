@@ -1,5 +1,5 @@
 
-
+@import "animations.scss";
 $Mobile: 700px;
 $MobileW: 100vw;
 $Tablet: 900px;
@@ -15,7 +15,6 @@ body {
 	margin: 0 auto;
 	padding: 0;
 	background: black;
-
 	width: 90vw;
 	display: flex;
 	justify-content: space-between;
@@ -44,7 +43,25 @@ body {
 			height: 90%;
 			width: 40px;
 			transition: all .2s ease;
-
+			animation-origin: right;
+			
+			animation: Showup .6s linear;
+		}
+		#plink {
+			background: white;
+			color: black;
+			text-decoration: none;
+			padding: 10px 20px;
+			border-radius: 3px;
+			font-weight: 700;
+			transition: all .2s ease;
+			animation-origin: left;
+			
+			animation: Showup .6s linear;	
+			&:hover {
+				background: rgb(0, 255, 200);
+				color: white;
+			}
 		}
 		.links {
 			// background: red;
@@ -54,7 +71,7 @@ body {
 			justify-content: space-between;
 			align-items: center;
 			flex-direction: row;
-
+			
 			a img:hover, #Gmail img:hover {
 				transform: scale(0.9);
 			}
@@ -176,35 +193,6 @@ body {
     background: red;
     transition: height, width 1s ease;
     animation: loading 4s ease infinite;
-}
-@keyframes loading {
-	0% {
-		width:  0%;
-		
-	}
-	10% {
-		background: blue;
-	}
-	25% {
-		width:  25%;
-		background: blue;
-	}
-		50% {
-		width:  60%;
-		background: white;	
-	}
-	75% {
-		width:  60%;
-		background: white;
-	}
-	90% {
-		width: 90%;
-	}
-		100% {
-		background: white;
-		width:  100%;
-		
-	}
 }
 
 

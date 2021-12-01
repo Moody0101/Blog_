@@ -1,0 +1,42 @@
+@keyframes loading {
+	0% {
+		width:  0%;
+		
+	}
+	10% {
+		background: blue;
+	}
+	25% {
+		width:  25%;
+		background: blue;
+	}
+		50% {
+		width:  60%;
+		background: white;	
+	}
+	75% {
+		width:  60%;
+		background: white;
+	}
+	90% {
+		width: 90%;
+	}
+		100% {
+		background: white;
+		width:  100%;
+		
+	}
+}
+
+@keyframes Showup {
+	0% {
+		transform: translate(100);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;	
+	}
+	
+}
+
+

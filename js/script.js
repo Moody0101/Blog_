@@ -7,22 +7,26 @@ const  loadingDiv = document.getElementsByClassName("container")[0];
 const temp = [
 	...document.getElementsByTagName("h2"),	...document.getElementsByTagName("p")
 ]
+//  testing 
+
+loadingDiv.style.display = "none";
+loading.style.display = "none";
+
+
 var delay = 500;
-var animate;
 
+// for(let i=0; i < Sections.length; i++) {
+//     Sections[i].style.display = "none";
+// }
 
-for(let i=0; i < Sections.length; i++) {
-    Sections[i].style.display = "none";
-}
-
-setTimeout(() => {
-    loadingDiv.style.display = "none";
-    loading.style.display = "none";
-    for(let i=0; i < Sections.length; i++) {
-    Sections[i].style.display = "";
-    Sections[i].style.transition = "1s all ease";
-}
-}, 4000);
+// setTimeout(() => {
+//     loadingDiv.style.display = "none";
+//     loading.style.display = "none";
+//     for(let i=0; i < Sections.length; i++) {
+//     Sections[i].style.display = "";
+//     Sections[i].style.transition = "1s all ease";
+// }
+// }, 4000);
 
 
 
@@ -30,18 +34,16 @@ setTimeout(() => {
 for(let i=0; i < temp.length, !(temp[i] == undefined);i++) {
 	
 	if (i % 2 == 0) {
-		Animate = "slide-left"
+		Animate = "slide-up"
 	} else {
-		Animate = "slide-right"
+		Animate = "slide-down"
 	}
     temp[i].setAttribute('data-sal', Animate);
     temp[i].setAttribute('data-sal-repeat', null);
     temp[i].setAttribute('data-sal-delay', `${delay}`);
-    temp[i].setAttribute('data-sal-easing', "ease"); 
+    temp[i].setAttribute('data-sal-easing', "ease-in-out");
    	delay += 50
 }
-
-
 
 sal({
     once: false,

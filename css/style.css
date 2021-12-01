@@ -1,4 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@keyframes loading {
+  0% {
+    width: 0%; }
+  10% {
+    background: blue; }
+  25% {
+    width: 25%;
+    background: blue; }
+  50% {
+    width: 60%;
+    background: white; }
+  75% {
+    width: 60%;
+    background: white; }
+  90% {
+    width: 90%; }
+  100% {
+    background: white;
+    width: 100%; } }
+@keyframes Showup {
+  0% {
+    transform: translate(100);
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 * {
   box-sizing: border-box;
   font-family: Poppins, sans-serif;
@@ -30,7 +55,22 @@ body {
     body nav img {
       height: 90%;
       width: 40px;
-      transition: all .2s ease; }
+      transition: all .2s ease;
+      animation-origin: right;
+      animation: Showup .6s linear; }
+    body nav #plink {
+      background: white;
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      font-weight: 700;
+      transition: all .2s ease;
+      animation-origin: left;
+      animation: Showup .6s linear; }
+      body nav #plink:hover {
+        background: #00ffc8;
+        color: white; }
     body nav .links {
       height: 90%;
       width: calc(30px*4 + 10px*3);
@@ -136,25 +176,6 @@ body {
   transition: height, width 1s ease;
   animation: loading 4s ease infinite; }
 
-@keyframes loading {
-  0% {
-    width: 0%; }
-  10% {
-    background: blue; }
-  25% {
-    width: 25%;
-    background: blue; }
-  50% {
-    width: 60%;
-    background: white; }
-  75% {
-    width: 60%;
-    background: white; }
-  90% {
-    width: 90%; }
-  100% {
-    background: white;
-    width: 100%; } }
 @media screen and (max-width: 789px) {
   body .load {
     width: 50vw; } }
