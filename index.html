@@ -8,20 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moody Blog</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 </head>
 
 
 <body>
+
+<!-- Loading animation -->
+    <div id="loading">
+        <div class="container">
+        <img src="./imgs/icons/POPI.svg" alt="logo">
+        <div id="LOAD" class="load">
+        </div>
+        </div>
+    </div>    
+<!--  -->
 
 <!-- Navbar -->
 
 <nav class="nav">
     <img src="./imgs/icons/POPI.svg">
     <div class="links">
-        <a href="#"><img src="./imgs/icons/twitter.svg"></a>
-        <a href="#"><img src="./imgs/icons/insta.svg"></a>
-        <a href="#"><img src="./imgs/icons/Gmail.svg"></a>
+        <a href="https://twitter.com/Moody010111"><img src="./imgs/icons/twitter.svg"></a>
+        <a href="https://www.instagram.com/kunkingmoody"><img src="./imgs/icons/insta.svg"></a>
+        <button style="background: none; outline: none; border:none; cursor: pointer;" id="Gmail"><img src="./imgs/icons/Gmail.svg"></button>
     </div>
 </nav>
 
