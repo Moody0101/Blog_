@@ -1,26 +1,28 @@
 
 
-// $Mobile: 700px;
-// $MobileW: 90vw;
-// $Tablet: 900px;
-// $MobileW: 80vw;
+$Mobile: 700px;
+$MobileW: 100vw;
+$Tablet: 900px;
+$tabletW: 80vw;
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 * {
 	box-sizing: border-box;
 	font-family: Poppins, sans-serif;
+	transition: all .8s linear;
 }
 
 
 
 body {
-	margin:0;
+	margin: 0 auto;
 	padding: 0;
 	background: black;
-	width: 100vw;
+
+	width: 90vw;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
 	nav {
@@ -29,14 +31,24 @@ body {
 		align-items: center;
 		flex-direction: row;
 		// background: white;
-		width: 70%;
+		width: 55%;
 		height: 40px;
 		margin-top: 15px;
+		@media screen and (max-width: $Mobile) {
+			width: $MobileW;
+		}
+		
+		@media screen and (max-width: $Tablet) {
+			width: $tabletW;
+		}
+
+		
 		img {
 
 			height: 90%;
 			width: 40px;
 			transition: all .2s ease;
+
 		}
 		.links {
 			// background: red;
@@ -52,31 +64,59 @@ body {
 			
 		}
 	}
-	.mainSection {
-		width: 70%;
-		height: 10vh;
-		background: #019283;
-		margin: 20px;
-		display:flex;
+	#mainSection {
+		width: 55%;
+		padding: 30px 0;
+		background-color: none;
+		margin: 0;
+		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		flex-direction: column;
+		color: white;
 		
 		div {
+			padding: 40px 0;
 			h2 {
-
+			.date {
+				color: #A79C9C;
+				font-size: .5em;
 			}
-		    p {
+			}
 
-		 }
-	    }
+			p {
+			   width: 100%;
+			}
+			.button {
+				color: black;
+				background:white;
+				padding: 10px;
+
+				border-radius: 10px;
+				text-decoration: none;
+				font-weight: 900;
+				font-size: 1em;
+				border: 1px solid black;
+				transition: all 0.3s ease;
+				margin-top: 20px;
+				&:hover {
+					border-color: white;
+					background: black;
+					color: white;
+				}
+			}
+
+		}
+		
+		@media screen and (max-width: $Mobile) {
+			width: $MobileW;
+		}
+		@media screen and (max-width: $Tablet) {
+			width: $tabletW;
+		}
+		
 	}
 }
 
 
 
-@media only screen and (max-width: 900px) {
-	.mainSection {
-	background: red;
-	}
-}
