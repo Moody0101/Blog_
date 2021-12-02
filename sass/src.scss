@@ -1,7 +1,7 @@
 
 @import "animations.scss";
 $Mobile: 700px;
-$MobileW: 100vw;
+$MobileW: 99vw;
 $Tablet: 900px;
 $tabletW: 80vw;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
@@ -15,7 +15,7 @@ body {
 	margin: 0 auto;
 	padding: 0;
 	background: black;
-	width: 90vw;
+	width: 95vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

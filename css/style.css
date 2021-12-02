@@ -33,7 +33,7 @@ body {
   margin: 0 auto;
   padding: 0;
   background: black;
-  width: 90vw;
+  width: 95vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@ body {
     margin-top: 15px; }
     @media screen and (max-width: 700px) {
       body nav {
-        width: 100vw; } }
+        width: 99vw; } }
     @media screen and (max-width: 900px) {
       body nav {
         width: 80vw; } }
@@ -115,7 +115,7 @@ body {
           color: white; }
     @media screen and (max-width: 700px) {
       body #mainSection {
-        width: 100vw; } }
+        width: 99vw; } }
     @media screen and (max-width: 900px) {
       body #mainSection {
         width: 80vw; } }
