@@ -1,0 +1,6 @@
+today: 2021/12/03
+
+[*] => finish the post adder.
+[ ] => make the first post.
+[ ] => make the postGenertor.
+[ ] => start making more posts

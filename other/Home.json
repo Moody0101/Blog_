@@ -1,0 +1,21 @@
+{
+    "Titles": [
+        "How to send emails using Python",
+        " How to Plot mathematical functions using pygame",
+        "the os and list comprehension magic",
+        "making command line tools."
+    ],
+    "paragraphs": [
+        "Sending emails is a really crucial thing for every small bussiness, startup or even big company, so this article looks over that topic using python, to make your work easier, plus more effecient.",
+        "Since Pygame has a non-cartisian coordinate system so the first step to do is make it cartisian, this plotting every point in respect to the center of the window so.....",
+        " If you have not heard about the power of combining between the os library and list comprehension, now I will illustrate how you can use it, for educational porpuses of course",
+        "command line tools are one of the most essential thing to know about, how they work ? how you can make a basic one just to get your hands wet with this kind of things, be cause it will probably facilitates somethings for you."
+    ],
+    "Dates": [
+        "soon..",
+        "soon..",
+        "soon..",
+        "soon.."
+    ],
+    "PostCount": 4
+}

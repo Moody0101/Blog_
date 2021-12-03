@@ -1,19 +1,19 @@
 
 @import "animations.scss";
 $Mobile: 700px;
-$MobileW: 99vw;
+$MobileW: 90vw;
 $Tablet: 900px;
 $tabletW: 80vw;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 * {
 	box-sizing: border-box;
-	font-family: Poppins, sans-serif;
+	font-family: "Poppins", sans-serif;
 	transition: all .8s linear;
 }
 
 body {
 	margin: 0 auto;
-	padding: 0;
+	padding: 1px;
 	background: black;
 	width: 95vw;
 	display: flex;
@@ -44,7 +44,6 @@ body {
 			width: 40px;
 			transition: all .2s ease;
 			animation-origin: right;
-			
 			animation: Showup .6s linear;
 		}
 		#plink {
@@ -66,7 +65,7 @@ body {
 		.links {
 			// background: red;
 			height: 90%;
-			width: calc(30px*4 + 10px*3);
+			width: calc(30px*3 + 10px*2);
 			display:flex;
 			justify-content: space-between;
 			align-items: center;
