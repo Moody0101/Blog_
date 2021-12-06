@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> How to send emails using python</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+    
+</head>
+
+
+<body>
+
+<button id="FilterBTT"> click me </button>
+
+<!-- Loading animation -->
+    <div id="loading">
+        <div class="container">
+        <img src="../../imgs/icons/POPI.svg" alt="logo">
+        <div id="LOAD" class="load">
+        </div>
+        </div>
+    </div>    
+
+<!-- Navbar -->
+
+<nav class="nav">
+    <img src="../../imgs/icons/POPI.svg">
+    <a id="plink" href="https:\\Moodyy.netlify.com">Portfolio</a>
+    <div class="links">
+        <a href="https://twitter.com/Moody010111"><img src="../../imgs/icons/twitter.svg"></a>
+        <a href="https://www.instagram.com/kunkingmoody"><img src="../../imgs/icons/insta.svg"></a>
+
+    </div>
+</nav>
+
+<h2> How to send emails using Python </h2>
+
+
+<ol class="tableOfContent">
+        <li><a href="#whyEmail"> why emails </a></li>
+        <li><a href="#settingup"> setting up </a></li>
+        <li><a href="#1stImplemntation"> python implemntation to send one email? </a></li>
+        <li><a href="">sending multiple emails using a for loop </a></li>
+        <li><a href=""> sending multiple emails using a text file, csv file, json file </a></li>
+        <li><a href=""> attaching binary data (images, pdfs, videos..) </a></li>   
+</ol>
+
+
+<div class="Content" id="whyEmail">
+    <h3> why emails ?</h3>
+    <p>
+        why emails? you might ask, it is becasue emails are the best way to reach out people, because there is a better chance for you to check your emails than social media accounts.
+so being as short as possible, let's illustrate this idea/strategy of advertising using python to send emails, instead of sending manually, let's imagine that you have a startup, that probably sells some product, books, softwares, perfumes, services or any product that can be sold, if you only work with the traditional way, you might make it if you only have 20 costumers, even in that case you will struggle, so what if you had 20k costumers ?
+if we do the math and assumre that you copy and paste the same email over and over in 5s then sending the email to 20k people by your self will take you 20k*5s which is approximately 24 hours+ of work(stupid work), is not that riduclous?, over a day to send one only emails, so this is the thing, as your bussiness grows more, managing your startup or company will get more and more complex, so my point might be obvious by now since I walked you through the real world application.
+by using python to send emails, you will reach out to your clients and advertise and announce thing easily, more effecient, also faster.
+    </p>
+</div>
+
+
+<div class="Content" id="settingup">
+    <h3> setting up </h3>
+    <p>
+       before even starting to type code, I am going to explain the library and the set up that we need to do, the first thing is that you really must have python installed  (v3.9 or higher) also you should have some python and terminal knowledge, also we are going to use the smtplib which is a built-in python module that uses the SMTP that stands for <span style="color:cyan;">
+           Simple Mail Transfer Protocol
+       </span> , and it’s an application used by mail servers (Ex: hotmail, gmail etcetra...) to send, receive, and/or relay outgoing mail between email senders and receivers, second thing is knowing the port and host of the mailing server that you are using, wheather it is gmail or hotmail or yahoo, because each one of them uses diffrent ports, host urls (of course), configurations, and different user policies. for instance, gmail uses the port 465 and the host smtp.gmail.com and sending gmail using python requires a key that is granted from the account's privacy settings, without that, python has no permssion to use the email even if you had the actual password, so to sammurize you should look up and do these things before starting
+       <ul>
+            <li style="margin: 10px 0;"> install python. </li>
+           <li style="margin: 10px 0;"> the host, port of the mailing server. </li>
+           <li style="margin: 10px 0;">get the key of your account, store it in an environement variable (for security purposes)</li>
+           <li style="margin: 10px 0;">open a text editor  </li>
+       </ul>
+       also I would like to provide you with some of the information I have found about some mail servers thanks to this blog post: <span  style="display: inline;"><a style="display: inline;text-decoration: none; color: cyan;" href="https://sendgrid.com/blog/what-is-an-smtp-server/"> https://sendgrid.com/blog/what-is-an-smtp-server/ </a></span>
+       <table>
+        <tbody>
+        <tr>
+        <td><span style="font-weight: 400;">SMTP Provider</span></td>
+        <td><span style="font-weight: 400;">URL</span></td>
+        <td><span style="font-weight: 400;">SMTP Settings</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">AOL</span></td>
+        <td><span style="font-weight: 400;">aol.com</span></td>
+        <td><span style="font-weight: 400;">smtp.aol.com</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">AT&amp;T</span></td>
+        <td><span style="font-weight: 400;">att.net</span></td>
+        <td><span style="font-weight: 400;">smtp.mail.att.net</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">Comcast</span></td>
+        <td><span style="font-weight: 400;">comcast.net</span></td>
+        <td><span style="font-weight: 400;">smtp.comcast.net</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">iCloud</span></td>
+        <td><span style="font-weight: 400;">icloud.com/mail</span></td>
+        <td><span style="font-weight: 400;">smtp.mail.me.com</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">Gmail</span></td>
+        <td><span style="font-weight: 400;">gmail.com</span></td>
+        <td><span style="font-weight: 400;">smtp.gmail.com</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">Outlook</span></td>
+        <td><span style="font-weight: 400;">outlook.com</span></td>
+        <td><span style="font-weight: 400;">smtp-mail.outlook.com</span></td>
+        </tr>
+        <tr>
+        <td><span style="font-weight: 400;">Yahoo</span></td>
+        <td><span style="font-weight: 400;">mail.yahoo.com</span></td>
+        <td><span style="font-weight: 400;">smtp.mail.yahoo.com</span></td>
+        </tr>
+        </tbody>
+        </table>
+    </p>
+</div>
+
+
+<footer>
+    <a class="backHome" href="../../index.html"> back home</a>
+</footer>
+</body>
+
+</html>         

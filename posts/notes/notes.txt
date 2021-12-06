@@ -1,0 +1,14 @@
+How to send emails using python:	
+	table of content:
+		=> why sending emails?
+		=> what is smtp lib
+		=> how can we use it to send emails?
+		=> my implementation to make it more easier for you
+why sennding emails:
+	-> why emails? you might ask, it is becasue emails are the best way to reach out people, because there is a better chance for you to check your emails than social media accounts.
+so being as short as possible, let's illustrate this idea/strategy of advertising using python to send emails, instead of sending manually, let's imagine that you have a startup, that probably sells some product, books, softwares, perfumes, services or any product that can be sold, if you only work with the traditional way, you might make it if you only have 20 costumers, even in that case you will struggle, so what if you had 20k costumers ?
+if we do the math and assumre that you copy and paste the same email over and over in 5s then sending the email to 20k people by your self will take you 20k*5s which is approximately 24 hours+ of work(stupid work), is not that riduclous?, over a day to send one only emails, so this is the thing, as your bussiness grows more, managing your startup or company will get more and more complex, so my point might be obvious by now since I walked you through the real world application.
+by using python to send emails, you will reach out to your clients and advertise and announce thing easily, more effecient, also faster.
+
+python implemntation to send one email?:
+	-> The 
