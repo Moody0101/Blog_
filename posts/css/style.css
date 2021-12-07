@@ -211,7 +211,7 @@ margin-top: 50px;
   margin: 10px 0;
   padding: 5px 0;
   border-bottom: 1px solid white;
-  transition:all 1s ease;
+
 }
 
 .tableOfContent li a { 
@@ -219,7 +219,7 @@ margin-top: 50px;
 	text-decoration: none;
 }
 .tableOfContent li a:hover {
-	color: rgb(0, 0, 230);
+	color: rgb(255, 255, 100);
 }
 
 table {
