@@ -1,16 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
- */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,600;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 * {
 	box-sizing: border-box;
   scroll-behavior: smooth;
+  transition: all .8s linear; 
 }
 
 *::selection {
 	background: white;
 	color: black;
 }
+::-webkit-scrollbar {
+  width: 5px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  transition: all 1s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(200, 0, 0);
+}
+
+
+
 p {
   font-size: 1.1em;
 }
@@ -27,7 +48,8 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: column; 
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: white;
 }
 
@@ -169,11 +191,6 @@ body nav .links {
 
 
 
-* {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  transition: all .8s linear; }
-
 
 body h2 {
 width: 55%;
@@ -193,9 +210,8 @@ margin-top: 50px;
   cursor: pointer;
   margin: 10px 0;
   padding: 5px 0;
-  
   border-bottom: 1px solid white;
-
+  transition:all 1s ease;
 }
 
 .tableOfContent li a { 
@@ -203,7 +219,7 @@ margin-top: 50px;
 	text-decoration: none;
 }
 .tableOfContent li a:hover {
-	color: rgb(255, 255, 100);
+	color: rgb(0, 0, 230);
 }
 
 table {
@@ -220,6 +236,45 @@ table tbody tr:nth-child(1) td {
   border-bottom: 1px solid rgb(19, 19, 19);
 }
 
+.functions {
+  color: #3275a8;
+}
+.green {
+  color: lightgreen;
+}
+.Pythonword {
+  color: #cc5125;
+}
+.comment {
+ color: #7a8760; 
+}
+.keywords {
+  color: cyan;
+  display: inline;
+}
+.code {
+  width: 100%;
+  background: #191919;
+  font-family: "Myriad Pro",sans-serif;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 30px 0;
+}
+.code .comment {
+  display: block;
+  font-family: "Myriad Pro",sans-serif;
+  font-weight: 400;
+  margin: 5px 0;
+}
+.code span {
+  font-family: "Myriad Pro",sans-serif;
+  font-weight: 400; 
+}
+.code span.line {
+  display: block;
+  margin: 10px 0;
+}
 .Content {
 	display: flex;
 	justify-content: space-between;
@@ -249,13 +304,13 @@ td {
     vertical-align: inherit;
 }
 @media screen and (max-width: 700px) {
-  body nav, footer, body h2, .Content, .tableOfContent, table  {
+  body nav, footer, body h2, .Content, .tableOfContent, table, .code  {
     width: 90vw; 
 }
 
 }
 @media screen and (max-width: 900px) {
-  body nav, footer, body h2, .Content, .tableOfContent, table  {
+  body nav, footer, body h2, .Content, .tableOfContent, table, .code  {
     width: 80vw; 
 }
 }

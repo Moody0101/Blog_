@@ -94,6 +94,7 @@ body {
       padding: 40px 0; }
       body #mainSection div h2 .date {
         color: #A79C9C;
+        margin-left: 10px;
         font-size: .5em; }
       body #mainSection div p {
         width: 100%;
