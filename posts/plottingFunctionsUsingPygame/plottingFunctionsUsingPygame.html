@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta name="keywords" content="Port, host, server, smtp, python, hacks, cyber security, management, mailing servers">
+    <meta name="author" content="Moody">
+    <meta name="copyright" content="Hossin azmoud">
+    <meta name="robots" content="follow" />
+    <meta name="description" content="plotting points using python's pygame library">
+    <link rel="shortcut icon" href="../../imgs/icons/POPI.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> plotting mathematical functions using python.</title> 
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+
+<!-- Loading animation -->
+    <div id="loading">
+        <div class="container">
+        <img src="../../imgs/icons/POPI.svg" alt="logo">
+        <div id="LOAD" class="load">
+        </div>
+        </div>
+    </div>    
+
+<!-- Navbar -->
+
+<nav class="nav">
+    <img src="../../imgs/icons/POPI.svg">
+    <a id="plink" href="https:\\Moodyy.netlify.com">Portfolio</a>
+    <div class="links">
+        <a href="https://twitter.com/Moody010111"><img src="../../imgs/icons/twitter.svg"></a>
+        <a href="https://www.instagram.com/kunkingmoody"><img src="../../imgs/icons/insta.svg"></a>
+
+    </div>
+</nav>
+
+<h2> Plot mathematical functions using pygame</h2>
+
+<ol class="tableOfContent">
+    <li><a href="#Set">set up and prerequisites</a></li>
+    <li><a href="#pygame">what exactly is pygame ?</a></li>
+
+    <li><a href="#init">initializing pygame</a></li>
+    <li><a href="#Cod"> implementing the plot function, then plotting sin, cos, tan</a></li>
+    <li><a href="#Custome">plotting a costume function</a></li>
+</ol>
+
+
+<div class="Content" id="Set">
+    <h3>
+        set up and prerequisites
+    </h3>
+    <p>
+        before starting to code there is some things that you should have installed in your laptop, the first thing is python version 3.7 or higher.
+        you should also install Pygame using pip, which is the python package manager as follows:
+        <div class="code console">
+            $ pip install pygame
+        </div>
+    </p>
+    also, having some OOP knowledge is kindo of required be cause I am making a graph object and there would somethings that you would not quiet fathoum if you did not have understood how OOP in general works, plus, if you don't understand atleast the basic of python, you would just waste your time, so before reading or copying the code for use, try to understand, since this is the purpose of the post, understanding!!
+</div>
+
+
+<div class="Content" id="pygame">
+    <h3> what exactly is pygame ?</h3>
+    <p>
+        what is pygame! predictable question, since google have anything we want, I just googled it and found this definition:
+        <div class="code def">
+            Pygame is a cross-platform set of Python modules designed for writing video games. It includes computer graphics and sound libraries designed to be used with the Python programming language.
+        </div>
+        it is kind of useful, but I personnally define pygame this way:
+        <div class="code def">
+            pygame is a collection of files, modules, code, resources, concepts and mechanisms that was implemented in python to make computer graphics and visuals, it is cross-platform, which means it can work in linux, windows, mac Os, android, also IOS.
+            it is specialized in working with 2D games, 2D graphics, and you can make with it alot of awesome things.
+            one of these things is data visualizations, but this one needs a little bit of creativity/math knowledge since it is not the main purpose of the library.
+        </div>
+    </p>
+</div>
+
+<div class="Content" id="init">
+    <h3> initializing pygame </h3>
+
+    <p>
+    to initialize pygame the first thing that we should be doing is importing the whole library for use, with this line of code.
+    <div class="code">
+        <span class="line">
+            <span class="Pythonword"> import </span> pygame
+        </span>
+    </div>
+    then we should type in some boiler plate code, which invokes pygame and sets some props such as the title of the window, the FPS, and also the color of the window.
+    <div class="code">
+        <span class="comment"> # the Grapher class </span>
+        <span class="line">
+            <span class="Pythonword">class</span> Grapher:
+        </span>
+        <span class="line">&emsp;clock = pygame.time<span class=" functions">Clock()</span></span>
+        <span class="line">&emsp;<pygame class="span functions">pygame.init()</pygame></pygame></span>
+        <span class="line">
+        &emsp;pygame.display.<span class="functions">
+            set_caption(<span class="green">"GRAPH"</span>)
+        </span>
+        <span class="line">
+            <span class="Pythonword">&emsp;def</span> <span class="functions"><i>__init__</i>( <span style="color:lightyellow;">self, background, width, height</span>):</span></span>
+        </span>
+        <span class="line">&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.background = background</span>
+        <span class="line">&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.width = width</span>
+        <span class="line">&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.height = height</span>
+        <span class="comment">
+            &emsp;&emsp;&emsp;&emsp;#setting up the window's width, height, and background.
+        </span>
+
+        <span class="line">&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.window = pygame.display. <span class="functions">set_mode((
+        <span class="pythonword">self</span>.width, 
+        <span class="pythonword">self</span>.height
+         ))</span></span>
+         <span class="line">
+             &emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.window.fill(<span class="pythonword">self</span>.background)
+         </span>
+         <span class="line">
+             &emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.run = <span class="Pythonword">True</span>
+         </span>
+    </div>
+    <p>after getting initialization out of the way, we would like to make the <span class="functions"><i>run_()</i></span> function to display the window.
+    </p>
+    so this would be by making a little while loop as follows:
+    <div class="code">
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;<span class="Pythonword">def run_(<span style="color: lightyellow">self, x_axis, y_axis</span>)</span>:
+        </span>
+        <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;#specifying the frame rate</span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.clock.<span class="functions">tick(30)</span>
+        </span>
+        <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# the running loop</span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">while <span class="Pythonwordrun:">self</span>.run:</span>
+        </span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">for</span> event <span class="Pythonword">
+            in </span>pygame.event.<span class="functions">get()</span>:
+        </span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">if</span> event.type == pygame.QUIT:
+        </span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="Pythonword">self</span>.run = <span class="Pythonword">False</span>
+        </span>
+        <!-- <span class="comment">pygame.display.update()</span> -->
+        <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; #the plot function is the place where we can put code to plot.</span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <span class="Pythonword">self</span>.<span class="functions">plot(x_axis, y_axis)</span>
+        </span>
+        <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; # to update the window.</span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;pygame.display. <span class="functions">update()</span>
+        </span>
+        <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;pygame.<span class="functions">
+                quit()
+            </span>
+        </span>
+    </div>
+    <p>
+        Note: everything I have implemented is only boiler plate code, that means if you will be coding alot in pygame, you would do the same thing for quiet a while, however don't even 
+        think of memorizing this, it is stupid to memorize boiler plate code.
+    </p>
+    now if initialize the Graph class we these configs:
+    <div class="code">
+        <span class="line">width = 500</span>
+    <span class="line">height = 500</span>
+    <span class="comment"># rgb stands for white</span>
+    <span class="line">background = (255, 255, 255)</span>
+    <span class="line">x = "test"</span>
+    <span class="line">y = "test</span>
+        <span class="line">
+            G = Grapher(background, width, height)
+        </span>
+        <span class="line">G.run_(x, y)</span>
+        <span class="comment">x and y will be just printed be cause it is a test.</span>
+    </div>
+    in here we will get a white window with the dimentions 500x500
+    but the plot functions was not implemented tp do anything special:
+    <img src="../imgs/window.jpg" class="win" alt="Pygame window">
+</p>
+</div>
+
+<div class="Content" id="Cod">
+    <h3> implementing the plot function then plotting the sin, cos, tan functions</h3>
+
+    <p>
+        <p>
+            
+        well, since we have implemented the functionality we need to draw in the window, now we have a move crucial task in hand which is plotting.
+
+        </p>
+        the first thing is to get the origin then zip the data, so that every x has an associated y number.
+        <div class="code">
+            <span class="line">
+            &emsp;&emsp;&emsp;&emsp;<span class="Pythonword">def plot(<span style="color: lightyellow">self, x_axis, y_axis</span>)</span>:
+            </span>
+            <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# getting the origin.</span>
+            <span class="line">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;originx, originy = <span class="Pythonword">self.</span>width / 2, <span class="Pythonword">self.</span>height / 2 
+            </span>
+            <span class="comment">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# rearranging data.</span>
+            <span class="line">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;data = <span class="functions">zip(x_axis, y_axis)</span>
+            </span>
+        </div>
+        now, since we have the data arranged the way that we wanted and we can identify our origin, we can pretty much make the graph using a simple for loop and circles with radius 3 to represent our points, in the <span class="functions">plot()</span> functions we add:
+        <div class="code">
+            <span class="line">
+            <span class="Pythonword">&emsp;&emsp;&emsp;&emsp;for</span> x, y <span class="Pythonword">
+            in </span>data<span class="functions"></span>:
+            </span>
+            <span class="line">
+                &emsp;&emsp;&emsp;&emsp;pygame.draw.<span class="functions">circle(<span style="color: lightyellow;"> <span class="Pythonword">self</span>.window, (0, 0, 0), (originx+x*30, originy+y*30), 3</span>)</span>
+            </span>
+            <!-- pygame.draw.circle(self.window, (0, 0, 0), (originx+i*30, originy+j*30), 3) -->
+        </div>
+        as you see I multiplied the chords with a constant, to zoom because it would not be as obvious, and you can even experiment with it and you will see why I did that, also I have added the origins originx and originy to make the middle of the screeen an origin of the graph.
+        <span class="line">
+            to visualize the functionality of the code we wrote we can invoke the class then pass two lists of number to plot them
+        </span>
+        <span class="line">
+            Note: we are going to plot the sin wave
+        </span>
+        <div class="code">
+            <span class="comment">
+                # Grabing the sin functions from the math library
+            </span>
+            <span class="line"> <span class="Pythonword">from</span> math <span class="Pythonword">import</span> sin</span>
+            <span class="line">
+                Graph = <span class="functions">Grapher(<span style="color: lightyellow;">(255, 255, 255), 500, 500</span>)</span>
+            </span>
+            <span class="comment">
+                # specifying the color, the height and width. 
+            </span>
+            <span class="line">
+                Graph.run_([ i <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-100, 100)</span>], [ sin(i) <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-100, 100)</span>])
+            </span>
+            <span class="comment">
+                # invoking the run function.
+            </span>
+        </div>
+        the output would be:
+        <img src="../imgs/window2.jpg" class="win" alt="Pygame window sin">
+        if we want it to be more accurate we need to add more points, or in other words add more percesion, and that by making the range wider, then apply multiply the coordinates to a decimal constant, for instance 0.01, the smaller the more the gap between the points gets more tight therefore we can see the graph as a coherent wave.
+        <span class="line">here is the code for that</span>
+        <div class="code">
+            <span class="line">
+                Graph.run_([ i*<u>0.01</u> <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>], [ sin(i*<u>0.01</u>) <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>])
+            </span>
+        </div>
+        the output is:
+        <img src="..\imgs\wave.jpg" alt="sinWave" class="win">
+        to plot the cos, tan we do the same thing, the only difference is the function we use in the second passed list, instead of import sin and using it, we import the function we need to plot then we use it, for example if we want to visualize the tan function.
+        <div class="code">
+             
+            <span class="line"> <span class="Pythonword">from</span> math <span class="Pythonword">import</span> cos</span>
+             <span class="line">
+                Graph.run_([ i*<u>0.01</u> <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>], [ cos(i*<u>0.01</u>) <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>])
+            </span>
+        </div>
+
+        the output is:
+        <img src="..\imgs\coswave.jpg" alt="coswave" class="win">
+        it is identical to the sine wave but if we do the same thing for the tan, we get this output:
+        <img src="..\imgs\tan.jpg" alt="tanwave" class="win">
+    </p>
+</div>
+
+<div class="Content" id="Custome">
+    <h3>plotting a custome function</h3>
+    <p>
+        to plot a cusome function, we are going to use the same instance, but first we are going to define the function:
+        <div class="code">
+            <span class="line">
+                <pre>
+<span class="Pythonword">def </span><span class="functions">power(x)</span>:
+    <span class="Pythonword">return</span> x ** 2
+                </pre>
+            </span>
+        </div>
+        using the Grapher instance and the same implementation above:
+        <div class="code" style="overflow-x: scroll;">
+            <pre>
+ Graph.run_([ i*<u>0.01</u> <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>], [ <u>power</u>(i*<u>0.01</u>) <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>])
+            </pre>
+        </div>
+        Output would be:
+        <img src="..\imgs\power.jpg" alt="tanwave" class="win">
+        note: the graph is upside down because the coordinate system is still a little (y coords start from the top to the bottom so..) bit off in pygame but fixing is not that hard, we can just do this:
+         <div class="code" style="overflow-x: scroll;">
+            <pre>
+Graph.run_([ i*<u>0.01</u> <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>], [ <u>power</u>(i*<u>0.01</u>)<u>(-1)</u> <span class="Pythonword">for</span> i <span class="Pythonword">in</span> <span class="functions">range(-10000, 10000)</span>])
+            </pre>
+        </div>
+        much better ?:
+        <img src="..\imgs\reversedPower.jpg" alt="wave" class="win">
+        click this link to download the script and experiment with it, hopefully you would understand.
+        <a href="..\other\Grapher.py" class="download">Grapher.py</a>
+    </p>
+</div>
+<div class="Content">
+    <span style="color:rgb(100, 100, 100);display: block;">Author: Moody</span>
+    <span style="color:rgb(100, 100, 100);display: block;"> Date: 2021/12/13, 19:11</span>
+    
+</div>
+<footer>
+    <a class="backHome" href="../../index.html"> back home</a>
+</footer>
+</body>
+
+</html>         

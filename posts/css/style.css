@@ -4,7 +4,7 @@
 * {
 	box-sizing: border-box;
   scroll-behavior: smooth;
-  transition: all .8s linear; 
+  transition: all .5s linear; 
 }
 
 *::selection {
@@ -166,6 +166,7 @@ body nav .links {
   width: 40px; 
 }
 
+
 .load {
   width: 300px;
   height: 3px;
@@ -254,12 +255,21 @@ table tbody tr:nth-child(1) td {
 }
 .code {
   width: 100%;
+  /* overflow-x: scroll; */
   background: #191919;
   font-family: "Myriad Pro",sans-serif;
   font-weight: 400;
   padding: 10px;
   border-radius: 10px;
   margin: 30px 0;
+}
+
+.console {
+  background: #040f13;
+}
+
+.def {
+  border: 1px solid white;
 }
 .code .comment {
   display: block;
@@ -274,6 +284,26 @@ table tbody tr:nth-child(1) td {
 .code span.line {
   display: block;
   margin: 10px 0;
+}
+
+.download {
+  text-decoration: none;
+  background-color: white;
+  padding: 5px;
+  border-radius:  7px;
+  margin:  10px 0;
+  color: black;
+  border: 1px solid white;
+}
+.download:hover {
+  background-color: black;
+  color: white;
+}
+
+.win {
+  width: 55%;
+  border-radius: 10px;
+  margin:  20px auto;
 }
 .Content {
 	display: flex;
@@ -304,13 +334,13 @@ td {
     vertical-align: inherit;
 }
 @media screen and (max-width: 700px) {
-  body nav, footer, body h2, .Content, .tableOfContent, table, .code  {
+  body nav, footer, body h2, .Content, .tableOfContent, table, .code, .win  {
     width: 90vw; 
 }
 
 }
 @media screen and (max-width: 900px) {
-  body nav, footer, body h2, .Content, .tableOfContent, table, .code  {
+  body nav, footer, body h2, .Content, .tableOfContent, table, .code, .win  {
     width: 80vw; 
 }
 }

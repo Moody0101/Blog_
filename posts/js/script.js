@@ -1,4 +1,3 @@
-
 const loading = document.getElementById("loading");
 const  loadingDiv = document.getElementsByClassName("container")[0];
 const Sections = [
